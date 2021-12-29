@@ -1,4 +1,4 @@
-set completeopt=menuone,noinsert,noselect
+set completeopt=menu,menuone,noselect
 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

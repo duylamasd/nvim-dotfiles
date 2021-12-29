@@ -44,8 +44,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
   Plug 'olimorris/onedarkpro.nvim'
 
-  Plug 'tami5/lspsaga.nvim'
-
   Plug 'ray-x/lsp_signature.nvim'
 
 call plug#end()

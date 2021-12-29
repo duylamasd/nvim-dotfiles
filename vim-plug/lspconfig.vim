@@ -16,17 +16,17 @@ local on_attach = function(client, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  --buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  --buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  --buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  --buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  --buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
@@ -39,19 +39,6 @@ local on_attach = function(client, bufnr)
     vim.cmd [[autocmd BufWritePre,InsertLeave <buffer> lua vim.lsp.buf.formatting_sync()]]
     vim.cmd [[augroup END]]
   end
-
-  -- LSPsaga key maps
-  buf_set_keymap('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
-  --buf_set_keymap('n', '<C-f>', "<cmd>lua require('lspsaga.action').smart_Scroll_with_saga(1)<CR>", opts)
-  --buf_set_keymap('n', '<C-b>', "<cmd>lua require('lspsaga.action').smart_Scroll_with_saga(-1)<CR>", opts)
-  buf_set_keymap('n', 'gs', "<cmd>lua  require('lspsaga.signaturehelp').signature_help()<CR>", opts)
-  buf_set_keymap('n', '<space>rn', "<cmd>lua require('lspsaga.rename').rename()<CR>", opts)
-  --buf_set_keymap('n', '<space>gd', "<cmd>lua require('lspsaga.provider').preview_definition()<CR>", opts)
-  buf_set_keymap('n', '<space>ld', "<cmd>lua require('lspsaga.diagnostic').show_line_diagnostics()<CR>", opts)
-  buf_set_keymap('n', '<space>lc', "<cmd>lua require('lspsaga.diagnostic').show_cursor_diagnostics()<CR>", opts)
-  buf_set_keymap('n', '<space>ca', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", opts)
-  --buf_set_keymap('x', '<leader>ca', ":<C-u<lua require('lspsaga.codeaction').range_code_action()<CR>", opts)
-  buf_set_keymap('n', 'gh', "<cmd>lua require('lspsaga.provider').lsp_finder()<CR>", opts)
 
   local lsp_signature = require'lsp_signature'
   lsp_signature.on_attach({
