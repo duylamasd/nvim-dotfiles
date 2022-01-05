@@ -4,10 +4,10 @@ source $HOME/.config/nvim/vim-plug/telescope.vim
 source $HOME/.config/nvim/vim-plug/lualine.vim
 source $HOME/.config/nvim/vim-plug/completion.vim
 source $HOME/.config/nvim/vim-plug/tabline.vim
-source $HOME/.config/nvim/vim-plug/nerdtree.vim
 source $HOME/.config/nvim/vim-plug/git-blamer.vim
 source $HOME/.config/nvim/vim-plug/indent-blankline.vim
 source $HOME/.config/nvim/vim-plug/onedarkpro.vim
+source $HOME/.config/nvim/vim-plug/nvim-tree.vim
 
 set number
 

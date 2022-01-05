@@ -30,9 +30,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Auto complete fancy icons
   Plug 'onsails/lspkind-nvim'
 
-  Plug 'preservim/nerdtree'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
-
   Plug 'puremourning/vimspector'
   Plug 'ryanoasis/vim-devicons'
 
@@ -45,5 +42,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'olimorris/onedarkpro.nvim'
 
   Plug 'ray-x/lsp_signature.nvim'
+
+  Plug 'kyazdani42/nvim-tree.lua'
 
 call plug#end()
