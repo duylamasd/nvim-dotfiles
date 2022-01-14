@@ -56,6 +56,9 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  flags = {
+    debounce_text_changes = 150,
+  },
   filetypes = {
     'javascript',
     'javascriptreact',
@@ -157,21 +160,35 @@ nvim_lsp.tsserver.setup {
   end,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact" },
   capabilities = capabilities,
+  flags = {
+    debounce_text_changes = 150,
+  }
 }
 
 nvim_lsp.rust_analyzer.setup {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
+  flags = {
+    debounce_text_changes = 150,
+  },
 }
 
 nvim_lsp.pyright.setup {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
+  flags = {
+    debounce_text_changes = 150,
+  }
+
 }
 
 nvim_lsp.gopls.setup {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
+  flags = {
+    debounce_text_changes = 150,
+  }
+
 }
 
 nvim_lsp.graphql.setup {
