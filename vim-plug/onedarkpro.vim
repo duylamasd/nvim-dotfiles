@@ -6,10 +6,10 @@ lua << EOF
     hlgroups = {}, -- Override default highlight groups
     styles = {
       strings = "NONE", -- Style that is applied to strings
-      comments = "NONE", -- Style that is applied to comments
-      keywords = "NONE", -- Style that is applied to keywords
-      functions = "NONE", -- Style that is applied to functions
-      variables = "NONE", -- Style that is applied to variables
+      comments = "italic", -- Style that is applied to comments
+      keywords = "bold,italic", -- Style that is applied to keywords
+      functions = "italic", -- Style that is applied to functions
+      variables = "italic", -- Style that is applied to variables
     },
     options = {
       bold = true, -- Use the themes opinionated bold styles?
