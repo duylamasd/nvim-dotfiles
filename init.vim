@@ -8,6 +8,7 @@ source $HOME/.config/nvim/vim-plug/git-blamer.vim
 source $HOME/.config/nvim/vim-plug/indent-blankline.vim
 source $HOME/.config/nvim/vim-plug/onedarkpro.vim
 source $HOME/.config/nvim/vim-plug/nvim-tree.vim
+source $HOME/.config/nvim/vim-plug/treesitter.vim
 
 set number
 

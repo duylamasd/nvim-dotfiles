@@ -20,7 +20,12 @@ lua << EOF
       transparency = true, -- Use a transparent background?
       terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
       window_unfocussed_color = false, -- When the window is out of focus, change the normal background?
-   }
+    },
+    plugins = {
+      native_lsp = true,
+      treesitter = true,
+      polygot = false,
+    }
   })
   onedarkpro.load()
 EOF
