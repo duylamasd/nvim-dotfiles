@@ -70,12 +70,12 @@ nvim_lsp.diagnosticls.setup {
   },
   init_options = {
     filetypes = {
-      javascript = "eslint",
-      ["javascript.jsx"] = "eslint",
-      javascriptreact = "eslint",
-      typescript = "eslint",
-      typescriptreact = "eslint",
-      ["typescript.tsx"] = "eslint",
+      javascript = "eslint_d",
+      ["javascript.jsx"] = "eslint_d",
+      javascriptreact = "eslint_d",
+      typescript = "eslint_d",
+      typescriptreact = "eslint_d",
+      ["typescript.tsx"] = "eslint_d",
     },
     linters = {
       eslint = {
@@ -103,7 +103,34 @@ nvim_lsp.diagnosticls.setup {
           [2] = "error",
           [1] = "warning"
         }
+      },
+      eslint_d = {
+        sourceName = "eslint_d",
+        command = "./node_modules/.bin/eslint_d",
+        rootPatterns = { ".git" },
+        debounce = 100,
+        args = {
+          "--stdin",
+          "--stdin-filename",
+          "%filepath",
+          "--format",
+          "json",
+        },
+        parseJson = {
+          errorsRoot = "[0].messages",
+          line = "line",
+          column = "column",
+          endLine = "endLine",
+          endColumn = "endColumn",
+          message = "${message} [${ruleId}]",
+          security = "severity",
+        };
+        securities = {
+          [2] = "error",
+          [1] = "warning"
+        }
       }
+
     },
     formatters = {
       eslint_d = {
