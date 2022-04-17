@@ -36,6 +36,8 @@ lua << EOF
       -- Accept currently selected item. If none selected, `select` first item.
       -- Set `select` to `false` to only confirm explicitly selected items.
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<Down>'] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior}),
+      ['<Up>'] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior}),
     },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
