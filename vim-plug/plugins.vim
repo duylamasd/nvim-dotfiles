@@ -48,5 +48,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
 
   Plug 'tpope/vim-fugitive'
+  Plug 'windwp/nvim-autopairs'
 
 call plug#end()
