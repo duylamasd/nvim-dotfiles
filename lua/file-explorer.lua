@@ -47,9 +47,7 @@ vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
 vim.keymap.set("n", "<leader>r", ":NvimTreeRefresh<CR>")
 vim.keymap.set("n", "<leader>n", ":NvimTreeFindFile<CR>")
 
-vim.opt.termguicolors = true
-
-vim.cmd[[highlight nvimtreefoldericon guibg=blue]]
+vim.api.nvim_command("set termguicolors")
 
 require("nvim-tree").setup {
   renderer = {
