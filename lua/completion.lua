@@ -5,7 +5,7 @@ local lspkind = require("lspkind")
 
 cmp.setup({
   snippet = {
-  -- REQUIRED - you must specify a snippet engine
+    -- REQUIRED - you must specify a snippet engine
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
       -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
@@ -24,9 +24,9 @@ cmp.setup({
     }),
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({behavior = cmp.SelectBehavior}), { "i", "c" }),
-    ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior}), { "i", "c" }),
+    ['<CR>'] = cmp.mapping(cmp.mapping.confirm({ select = true }), { "i", "c" }),
+    ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior }), { "i", "c" }),
+    ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior }), { "i", "c" }),
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -46,7 +46,7 @@ cmp.setup({
         luasnip = "[LuaSnip]",
         nvim_lua = "[Lua]",
         latex_symbols = "[Latext]"
-      }), before = function (entry, vim_item)
+      }), before = function(entry, vim_item)
         return vim_item
       end
     }),
