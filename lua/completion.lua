@@ -24,7 +24,8 @@ cmp.setup({
     }),
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ['<CR>'] = cmp.mapping(cmp.mapping.confirm({ select = true }), { "i", "c" }),
+    ['<CR>'] = cmp.mapping(cmp.mapping.confirm({ select = true }), { "i" }),
+    ['<Tab>'] = cmp.mapping(cmp.mapping.confirm({ select = true }), { "c" }),
     ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior }), { "i", "c" }),
     ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior }), { "i", "c" }),
   },
