@@ -32,10 +32,10 @@ local on_attach = function(client, bufnr)
   if client.resolved_capabilities.document_formatting then
     buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
-    vim.cmd [[augroup Format]]
-    vim.cmd [[autocmd! * <buffer>]]
-    vim.cmd [[autocmd BufWritePre,InsertLeave <buffer> lua vim.lsp.buf.formatting_sync()]]
-    vim.cmd [[augroup END]]
+    vim.cmd([[augroup Format]])
+    vim.cmd([[autocmd! * <buffer>]])
+    vim.cmd([[autocmd BufWritePre,InsertLeave <buffer> lua vim.lsp.buf.formatting_sync()]])
+    vim.cmd([[augroup END]])
   end
 
   local lsp_signature = require("lsp_signature")
