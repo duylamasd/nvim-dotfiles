@@ -10,7 +10,4 @@ lsp.tsserver.setup {
   end,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact" },
   capabilities = capabilities,
-  flags = {
-    debounce_text_changes = 100,
-  }
 }

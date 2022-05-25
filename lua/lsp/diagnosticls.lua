@@ -54,7 +54,6 @@ lsp.diagnosticls.setup {
         sourceName = "eslint_d",
         command = "./node_modules/.bin/eslint_d",
         rootPatterns = { ".git" },
-        debounce = 100,
         args = {
           "--stdin",
           "--stdin-filename",
