@@ -13,6 +13,8 @@ require("nvim-tree").setup {
     },
     special_files = { "README.md", "Makefile", "MAKEFILE", "readme.md", "Cargo.toml", "yarn.lock", "Cargo.lock" },
     icons = {
+      webdev_colors = true,
+      git_placement = "before",
       show = {
         file = true,
         folder = true,
