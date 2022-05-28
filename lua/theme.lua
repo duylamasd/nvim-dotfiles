@@ -1,6 +1,6 @@
 local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
-  theme = onedark, -- Override with "onedark" or "onelight". Alternatively, remove the option and the theme uses `vim.o.background` to determine
+  theme = "onedark", -- Override with "onedark" or "onelight". Alternatively, remove the option and the theme uses `vim.o.background` to determine
   colors = {}, -- Override default colors. Can specify colors for "onelight" or "onedark" themes
   hlgroups = {}, -- Override default highlight groups
   styles = {

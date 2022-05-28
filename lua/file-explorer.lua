@@ -1,47 +1,4 @@
-vim.g.nvim_tree_git_hl = 1
-vim.g.nvim_tree_highlight_opened_files = 1
-vim.g.nvim_tree_root_folder_modifier = ":~"
-vim.g.nvim_tree_add_trailing = 1
-vim.g.nvim_tree_group_empty = 1
-vim.g.nvim_tree_icon_padding = " "
-
-vim.g.nvim_tree_symlink_arrow = " >> "
-vim.g.nvim_tree_respect_buf_cwd = 1
-vim.g.nvim_tree_create_in_closed_folder = 0
-
 vim.g.nvim_tree_refresh_wait = 500
-
-vim.g.nvim_tree_special_files = { ["README.md"] = 1, ["Makefile"] = 1, ["MAKEFILE"] = 1 }
-vim.g.nvim_tree_show_icons = {
-  ["git"] = 1,
-  ["folders"] = 1,
-  ["files"] = 1,
-  ["folder_arrows"] = 1,
-}
-
-vim.g.nvim_tree_icons = {
-  ["default"] = "",
-  ["symlink"] = "",
-  ["git"] = {
-    ["unstaged"] = "✗",
-    ["staged"] = "✓",
-    ["unmerged"] = "",
-    ["renamed"] = "➜",
-    ["untracked"] = "★",
-    ["deleted"] = "",
-    ["ignored"] = "◌"
-  },
-  ["folder"] = {
-    ["arrow_open"] = "",
-    ["arrow_closed"] = "",
-    ["default"] = "",
-    ["open"] = "",
-    ["empty"] = "",
-    ["empty_open"] = "",
-    ["symlink"] = "",
-    ["symlink_open"] = "",
-  }
-}
 
 vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
 vim.keymap.set("n", "<leader>r", ":NvimTreeRefresh<CR>")
@@ -53,6 +10,47 @@ require("nvim-tree").setup {
   renderer = {
     indent_markers = {
       enable = true,
-    }
-  }
+    },
+    special_files = { "README.md", "Makefile", "MAKEFILE", "readme.md", "Cargo.toml", "yarn.lock", "Cargo.lock" },
+    icons = {
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = true,
+        git = true,
+      },
+      glyphs = {
+        ["default"] = "",
+        ["symlink"] = "",
+        ["git"] = {
+          ["unstaged"] = "✗",
+          ["staged"] = "✓",
+          ["unmerged"] = "",
+          ["renamed"] = "➜",
+          ["untracked"] = "★",
+          ["deleted"] = "",
+          ["ignored"] = "◌"
+        },
+        ["folder"] = {
+          ["arrow_open"] = "",
+          ["arrow_closed"] = "",
+          ["default"] = "",
+          ["open"] = "",
+          ["empty"] = "",
+          ["empty_open"] = "",
+          ["symlink"] = "",
+          ["symlink_open"] = "",
+        }
+      },
+      symlink_arrow = " >> ",
+      padding = " ",
+    },
+    group_empty = true,
+    highlight_git = true,
+    add_trailing = true,
+    highlight_opened_files = "icon",
+    root_folder_modifier = ":~",
+  },
+  create_in_closed_folder = false,
+  respect_buf_cwd = true,
 }

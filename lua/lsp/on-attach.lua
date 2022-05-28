@@ -37,16 +37,6 @@ local on_attach = function(client, bufnr)
     vim.cmd([[autocmd BufWritePre,InsertLeave <buffer> lua vim.lsp.buf.formatting_sync()]])
     vim.cmd([[augroup END]])
   end
-
-  local lsp_signature = require("lsp_signature")
-  lsp_signature.on_attach({
-    bind = true,
-    handler_opts = {
-      border = "rounded"
-    },
-    use_lspsaga = true
-  }, bufnr)
-
 end
 
 return on_attach
