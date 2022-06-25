@@ -41,4 +41,6 @@ Plug('nvim-treesitter/nvim-treesitter', { ['do'] = 'TSUpdate' })
 Plug('tpope/vim-fugitive')
 Plug('windwp/nvim-autopairs')
 
+Plug('ray-x/lsp_signature.nvim')
+
 vim.call("plug#end")
