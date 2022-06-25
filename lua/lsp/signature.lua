@@ -1,5 +1,5 @@
 require("lsp_signature").setup({
-  bind = false,
+  bind = true,
   handler_opts = {
     border = "rounded",
   },
