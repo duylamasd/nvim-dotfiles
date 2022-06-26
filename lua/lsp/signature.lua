@@ -3,5 +3,5 @@ require("lsp_signature").setup({
   handler_opts = {
     border = "rounded",
   },
-  floating_window = true,
+  floating_window = false,
 })
