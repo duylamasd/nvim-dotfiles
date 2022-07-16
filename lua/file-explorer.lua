@@ -7,7 +7,7 @@ vim.keymap.set("n", "<leader>n", ":NvimTreeFindFile<CR>")
 vim.api.nvim_command("set termguicolors")
 
 require("nvim-tree").setup {
-  view = { width = 30 },
+  view = { width = 40 },
   renderer = {
     indent_markers = {
       enable = true,
