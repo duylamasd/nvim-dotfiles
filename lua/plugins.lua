@@ -1,46 +1,62 @@
-local Plug = vim.fn["plug#"]
+return require("packer").startup(function(use)
+  use "wbthomason/packer.nvim"
 
-vim.call("plug#begin", "~/.config/nvim/autoload/plugged")
-Plug('ibhagwan/fzf-lua')
-Plug('vijaymarupudi/nvim-fzf')
-Plug('kyazdani42/nvim-web-devicons')
-Plug('neovim/nvim-lspconfig')
-Plug('nvim-lua/popup.nvim')
-Plug('nvim-lua/plenary.nvim')
-Plug('nvim-telescope/telescope.nvim')
-Plug('hoob3rt/lualine.nvim')
-Plug('editorconfig/editorconfig-vim')
-Plug('kdheepak/tabline.nvim')
+  use { "ibhagwan/fzf-lua",
+    -- optional for icon support
+    requires = { "kyazdani42/nvim-web-devicons" }
+  }
+  use {
+    "nvim-telescope/telescope.nvim",
+    requires = { { "nvim-lua/plenary.nvim" } }
+  }
+  use {
+    "nvim-lualine/lualine.nvim",
+    requires = { "kyazdani42/nvim-web-devicons", opt = true }
+  }
+  use {
+    "kdheepak/tabline.nvim",
+    requires = { "hoob3rt/lualine.nvim", "kyazdani42/nvim-web-devicons" }
+  }
+  use "lukas-reineke/indent-blankline.nvim"
 
-Plug('hrsh7th/vim-vsnip')
-Plug('hrsh7th/nvim-cmp')
-Plug('hrsh7th/cmp-nvim-lsp')
-Plug('hrsh7th/cmp-buffer')
-Plug('hrsh7th/cmp-path')
-Plug('hrsh7th/cmp-cmdline')
-Plug('hrsh7th/cmp-vsnip')
+  use "neovim/nvim-lspconfig"
 
--- Auto complete fancy icons
-Plug('onsails/lspkind-nvim')
+  use "hrsh7th/vim-vsnip"
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-path"
+  use "hrsh7th/cmp-cmdline"
+  use "hrsh7th/cmp-vsnip"
 
-Plug('puremourning/vimspector')
-Plug('ryanoasis/vim-devicons')
+  use "onsails/lspkind-nvim"
 
-Plug('voldikss/vim-floaterm')
+  use "puremourning/vimspector"
 
-Plug('APZelos/blamer.nvim')
+  use "editorconfig/editorconfig-vim"
 
-Plug('lukas-reineke/indent-blankline.nvim')
+  -- Theme
+  use "olimorris/onedarkpro.nvim"
 
-Plug('olimorris/onedarkpro.nvim')
+  -- Git blamer
+  use "APZelos/blamer.nvim"
 
-Plug('kyazdani42/nvim-tree.lua')
+  use {
+    "kyazdani42/nvim-tree.lua",
+    requires = {
+      "kyazdani42/nvim-web-devicons", -- optional, for file icons
+    },
+    tag = "nightly" -- optional, updated every week. (see issue #1193)
+  }
 
-Plug('nvim-treesitter/nvim-treesitter', { ['do'] = 'TSUpdate' })
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = function() require("nvim-treesitter.install").update({ with_sync = true }) end,
+  }
 
-Plug('tpope/vim-fugitive')
-Plug('windwp/nvim-autopairs')
+  use "tpope/vim-fugitive"
 
-Plug('ray-x/lsp_signature.nvim')
+  use "windwp/nvim-autopairs"
 
-vim.call("plug#end")
+  use "ray-x/lsp_signature.nvim"
+end)
