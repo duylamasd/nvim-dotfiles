@@ -1,12 +1,14 @@
-vim.g.nvim_tree_refresh_wait = 500
+local ok, nvim_tree = pcall(require, "nvim-tree")
+
+if not ok then
+  return
+end
 
 vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
 vim.keymap.set("n", "<leader>r", ":NvimTreeRefresh<CR>")
 vim.keymap.set("n", "<leader>n", ":NvimTreeFindFile<CR>")
 
-vim.api.nvim_command("set termguicolors")
-
-require("nvim-tree").setup {
+nvim_tree.setup {
   view = { width = 40 },
   renderer = {
     indent_markers = {

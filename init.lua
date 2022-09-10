@@ -1,14 +1,9 @@
 require("plugins")
-require("autopairs")
 require("completion")
 require("git-blamer")
-require("indent-blankline")
 require("lsp")
-require("status-line")
-require("file-explorer")
-require("theme")
 require("finder")
-require("treesitter")
-require("debugger")
 
 vim.api.nvim_command("set number")
+vim.g.vimspector_enable_mappings = "HUMAN"
+vim.api.nvim_command("set termguicolors")
