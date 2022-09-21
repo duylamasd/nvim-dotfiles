@@ -4,6 +4,6 @@ require("git-blamer")
 require("lsp")
 require("finder")
 
-vim.api.nvim_command("set number")
+vim.api.nvim_command("set relativenumber")
 vim.g.vimspector_enable_mappings = "HUMAN"
 vim.api.nvim_command("set termguicolors")
