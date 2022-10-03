@@ -29,12 +29,12 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
-  if client.resolved_capabilities.document_formatting then
-    buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  if client.server_capabilities.documentFormattingProvider then
+    buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', opts)
 
     vim.cmd([[augroup Format]])
     vim.cmd([[autocmd! * <buffer>]])
-    vim.cmd([[autocmd BufWritePre,InsertLeave <buffer> lua vim.lsp.buf.formatting_sync()]])
+    vim.cmd([[autocmd BufWritePre,InsertLeave <buffer> lua vim.lsp.buf.format { async = true }]])
     vim.cmd([[augroup END]])
   end
 end
