@@ -1,3 +1,25 @@
+local status, mason = pcall(require, "mason")
+if not status then
+  vim.notify("Couldn't load mason.")
+  return
+end
+
+local mason_lsp_status, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lsp_status then
+  vim.notify("Couldn't load mason-lspconfig.")
+  return
+end
+
+local lspstatus, lspconfig = pcall(require, "lspconfig")
+if not lspstatus then
+  vim.notify("Couldn't load lspconfig.")
+  return
+end
+
+mason.setup()
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -39,4 +61,41 @@ local on_attach = function(client, bufnr)
   end
 end
 
-return on_attach
+mason_lspconfig.setup({
+  ensure_installed = {
+    "bashls",
+    "clangd",
+    "cssls",
+    "diagnosticls",
+    "dockerls",
+    "gopls",
+    "graphql",
+    "html",
+    "jsonls",
+    "tsserver",
+    "sumneko_lua",
+    "marksman",
+    "pyright",
+    "rust_analyzer",
+    "sqls",
+    "vuels",
+    "lemminx",
+    "yamlls",
+    "tailwindcss",
+    "svelte",
+    "prismals",
+    "cmake",
+    "dotls",
+    "efm",
+    "astro",
+  }
+})
+
+mason_lspconfig.setup_handlers {
+  function(server_name)
+    lspconfig[server_name].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  end
+}

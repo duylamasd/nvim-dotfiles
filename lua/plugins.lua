@@ -19,8 +19,6 @@ return require("packer").startup(function(use)
   }
   use "lukas-reineke/indent-blankline.nvim"
 
-  use "neovim/nvim-lspconfig"
-
   use "hrsh7th/vim-vsnip"
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-nvim-lsp"
@@ -59,4 +57,10 @@ return require("packer").startup(function(use)
   use "windwp/nvim-autopairs"
 
   use "ray-x/lsp_signature.nvim"
+
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  }
 end)
