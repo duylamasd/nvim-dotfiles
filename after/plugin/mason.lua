@@ -16,9 +16,15 @@ if not lspstatus then
   return
 end
 
+local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not cmp_nvim_lsp_status then
+  vim.notify("Couldn't load cmp_nvim_lsp.")
+  return
+end
+
 mason.setup()
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
