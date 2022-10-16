@@ -111,6 +111,10 @@ mason_lspconfig.setup({
     "dotls",
     "efm",
     "astro",
+    "taplo",
+    "terraformls",
+    "tflint",
+    "vimls",
   },
   automatic_installation = true,
 })
