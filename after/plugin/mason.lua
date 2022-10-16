@@ -111,7 +111,8 @@ mason_lspconfig.setup({
     "dotls",
     "efm",
     "astro",
-  }
+  },
+  automatic_installation = true,
 })
 
 mason_lspconfig.setup_handlers {
