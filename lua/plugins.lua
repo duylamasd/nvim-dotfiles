@@ -63,4 +63,9 @@ return require("packer").startup(function(use)
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
   }
+
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+  })
 end)
