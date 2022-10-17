@@ -1,8 +1,33 @@
-local status, telescope_builtin = pcall(require, "telescope.builtin")
-if not status then
+local telescope_status, telescope = pcall(require, "telescope")
+
+if not telescope_status then
+  vim.notify("Couldn't load telescope.")
+  return
+end
+
+local actions_status, actions = pcall(require, "telescope.actions")
+
+if not actions_status then
+  vim.notify("Couldn't load telescope actions.")
+  return
+end
+
+local builtin_status, telescope_builtin = pcall(require, "telescope.builtin")
+
+if not builtin_status then
   vim.notify("Couldn't load telescope builtin.")
   return
 end
+
+telescope.setup {
+  defaults = {
+    mappings = {
+      n = {
+        ["q"] = actions.close
+      }
+    }
+  }
+}
 
 local opts = { noremap = true, silent = true }
 
