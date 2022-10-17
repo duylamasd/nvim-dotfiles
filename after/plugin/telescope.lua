@@ -12,7 +12,7 @@ if not actions_status then
   return
 end
 
-local builtin_status, telescope_builtin = pcall(require, "telescope.builtin")
+local builtin_status, builtin = pcall(require, "telescope.builtin")
 
 if not builtin_status then
   vim.notify("Couldn't load telescope builtin.")
@@ -31,7 +31,7 @@ telescope.setup {
 
 local opts = { noremap = true, silent = true }
 
-vim.keymap.set("n", "ff", telescope_builtin.find_files, opts)
-vim.keymap.set("n", "fg", telescope_builtin.live_grep, opts)
-vim.keymap.set("n", "fb", telescope_builtin.buffers, opts)
-vim.keymap.set("n", "fh", telescope_builtin.help_tags, opts)
+vim.keymap.set("n", "ff", builtin.find_files, opts)
+vim.keymap.set("n", "fg", builtin.live_grep, opts)
+vim.keymap.set("n", "fb", builtin.buffers, opts)
+vim.keymap.set("n", "fh", builtin.help_tags, opts)
