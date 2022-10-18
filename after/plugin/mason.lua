@@ -75,7 +75,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "]e", function() diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR }) end, opts)
 
   if client.server_capabilities.documentFormattingProvider then
-    buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', opts)
+    vim.keymap.set("n", "<space>f", function() vim.lsp.buf.format({ async = true }) end, opts)
 
     vim.cmd([[augroup Format]])
     vim.cmd([[autocmd! * <buffer>]])
@@ -89,7 +89,6 @@ mason_lspconfig.setup({
     "bashls",
     "clangd",
     "cssls",
-    "diagnosticls",
     "dockerls",
     "gopls",
     "graphql",
