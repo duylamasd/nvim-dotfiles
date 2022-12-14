@@ -14,6 +14,10 @@ onedarkpro.setup({
     keywords = "bold,italic", -- Style that is applied to keywords
     functions = "italic", -- Style that is applied to functions
     variables = "italic", -- Style that is applied to variables
+    types = "bold",
+    numbers = "NONE",
+    conditionals = "italic",
+    virtual_text = "italic",
   },
   options = {
     bold = true, -- Use the themes opinionated bold styles?
