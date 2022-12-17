@@ -5,14 +5,15 @@ if not status then
   return
 end
 
+local formatting = null_ls.builtins.formatting
+
+local sources = {
+  formatting.black, formatting.prettierd, formatting.prettier,
+  formatting.rustfmt, formatting.lua_format.with({
+    extra_args = {"--indent-width", "2", "--tab-width", "2"}
+  }), formatting.gofmt
+}
+
 local on_attach = require("utils.lsp-on-attach")
 
-null_ls.setup {
-  sources = {
-    null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.prettierd,
-    null_ls.builtins.formatting.prettier,
-    null_ls.builtins.formatting.rustfmt,
-  },
-  on_attach = on_attach
-}
+null_ls.setup {sources = sources, on_attach = on_attach}
