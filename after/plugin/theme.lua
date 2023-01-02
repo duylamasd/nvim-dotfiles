@@ -1,11 +1,8 @@
 local ok, onedarkpro = pcall(require, "onedarkpro")
 
-if not ok then
-  return
-end
+if not ok then return end
 
 onedarkpro.setup({
-  theme = "onedark", -- Override with "onedark" or "onelight". Alternatively, remove the option and the theme uses `vim.o.background` to determine
   colors = {}, -- Override default colors. Can specify colors for "onelight" or "onedark" themes
   highlights = {}, -- Override default highlight groups
   styles = {
@@ -17,7 +14,7 @@ onedarkpro.setup({
     types = "bold",
     numbers = "NONE",
     conditionals = "italic",
-    virtual_text = "italic",
+    virtual_text = "italic"
   },
   options = {
     bold = true, -- Use the themes opinionated bold styles?
@@ -27,12 +24,9 @@ onedarkpro.setup({
     cursorline = false, -- Use cursorline highlighting?
     transparency = true, -- Use a transparent background?
     terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
-    window_unfocussed_color = false, -- When the window is out of focus, change the normal background?
+    window_unfocussed_color = false -- When the window is out of focus, change the normal background?
   },
-  plugins = {
-    native_lsp = true,
-    treesitter = true,
-    polygot = false,
-  }
+  plugins = {native_lsp = true, treesitter = true, polygot = false}
 })
-onedarkpro.load()
+
+vim.cmd("colorscheme onedark_dark")
