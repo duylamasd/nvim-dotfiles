@@ -8,7 +8,7 @@ tabline.setup {}
 lualine.setup {
   options = {
     icons_enabled = true,
-    theme = "onedark_vivid",
+    theme = "tokyonight",
     section_separators = {left = "", right = ""},
     component_separators = {left = "", right = ""},
     disabled_filetypes = {"NvimTree"},
