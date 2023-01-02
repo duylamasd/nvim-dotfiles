@@ -29,4 +29,4 @@ onedarkpro.setup({
   plugins = {native_lsp = true, treesitter = true, polygot = false}
 })
 
-vim.cmd("colorscheme onedark_dark")
+vim.cmd("colorscheme onedark_vivid")
