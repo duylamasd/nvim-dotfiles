@@ -4,7 +4,7 @@ if not saga_status then
   return
 end
 
-saga.init_lsp_saga()
+saga.setup({})
 
 local diagnostic = require("lspsaga.diagnostic")
 
