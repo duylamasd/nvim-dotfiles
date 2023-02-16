@@ -6,17 +6,15 @@ end
 
 saga.setup({})
 
-local diagnostic = require("lspsaga.diagnostic")
-
-local lsp_formatting = function(bufnr, async)
-  vim.lsp.buf.format({
-    filter = function(client) return client.name == "null-ls" end,
-    bufnr = bufnr,
-    async = async
-  })
+local lsp_format_status, lsp_format = pcall(require, "lsp-format")
+if not lsp_format_status then
+  vim.notify("Couldn't load lsp-format")
+  return
 end
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+lsp_format.setup({})
+
+local diagnostic = require("lspsaga.diagnostic")
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -69,17 +67,7 @@ local on_attach = function(client, bufnr)
     diagnostic.goto_next({severity = vim.diagnostic.severity.ERROR})
   end, opts)
 
-  if client.supports_method("textDocument/formatting") then
-    vim.keymap.set("n", "<space>f", function() lsp_formatting(bufnr, true) end,
-                   opts)
-
-    vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function() lsp_formatting(bufnr, false) end
-    })
-  end
+  lsp_format.on_attach(client)
 end
 
 return on_attach

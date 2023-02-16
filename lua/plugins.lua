@@ -74,4 +74,6 @@ return require("packer").startup(function(use)
   use {"mbbill/undotree"}
 
   use {"folke/tokyonight.nvim"}
+
+  use {"lukas-reineke/lsp-format.nvim"}
 end)
