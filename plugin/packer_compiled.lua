@@ -109,11 +109,6 @@ _G.packer_plugins = {
     path = "/Users/duylamasd/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
     url = "https://github.com/editorconfig/editorconfig-vim"
   },
-  ["fzf-lua"] = {
-    loaded = true,
-    path = "/Users/duylamasd/.local/share/nvim/site/pack/packer/start/fzf-lua",
-    url = "https://github.com/ibhagwan/fzf-lua"
-  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/Users/duylamasd/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -185,8 +180,9 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
-    loaded = true,
-    path = "/Users/duylamasd/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/duylamasd/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["onedarkpro.nvim"] = {

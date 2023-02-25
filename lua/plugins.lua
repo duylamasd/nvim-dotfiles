@@ -2,11 +2,6 @@ return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
 
   use {
-    "ibhagwan/fzf-lua",
-    -- optional for icon support
-    requires = {"kyazdani42/nvim-web-devicons"}
-  }
-  use {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     requires = {{"nvim-lua/plenary.nvim"}}
