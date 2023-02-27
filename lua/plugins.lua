@@ -62,7 +62,13 @@ return require("packer").startup(function(use)
     "neovim/nvim-lspconfig"
   }
 
-  use({"glepnir/lspsaga.nvim", branch = "main"})
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    requires = {{"nvim-tree/nvim-web-devicons"}}
+  })
+
+  use {"nvim-tree/nvim-web-devicons"}
 
   use {"jose-elias-alvarez/null-ls.nvim", requires = {"nvim-lua/plenary.nvim"}}
 
