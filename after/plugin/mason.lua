@@ -24,49 +24,26 @@ end
 
 mason.setup()
 
-local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol
+                                                           .make_client_capabilities())
 
 local on_attach = require("utils.lsp-on-attach")
 
 mason_lspconfig.setup({
   ensure_installed = {
-    "bashls",
-    "clangd",
-    "cssls",
-    "dockerls",
-    "gopls",
-    "graphql",
-    "html",
-    "jsonls",
-    "tsserver",
-    "sumneko_lua",
-    "marksman",
-    "pyright",
-    "rust_analyzer",
-    "sqls",
-    "vuels",
-    "lemminx",
-    "yamlls",
-    "tailwindcss",
-    "svelte",
-    "prismals",
-    "cmake",
-    "dotls",
-    "efm",
-    "astro",
-    "taplo",
-    "terraformls",
-    "tflint",
-    "vimls",
+    "bashls", "clangd", "cssls", "dockerls", "gopls", "graphql", "html",
+    "jsonls", "tsserver", "marksman", "pyright", "rust_analyzer", "sqls",
+    "vuels", "lemminx", "yamlls", "tailwindcss", "svelte", "prismals", "cmake",
+    "dotls", "efm", "astro", "taplo", "terraformls", "tflint", "vimls"
   },
-  automatic_installation = true,
+  automatic_installation = true
 })
 
 mason_lspconfig.setup_handlers {
   function(server_name)
     lspconfig[server_name].setup {
       on_attach = on_attach,
-      capabilities = capabilities,
+      capabilities = capabilities
     }
   end
 }
