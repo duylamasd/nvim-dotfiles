@@ -30,7 +30,14 @@ onedarkpro.setup({
     terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
     window_unfocussed_color = false -- When the window is out of focus, change the normal background?
   },
-  plugins = {native_lsp = true, treesitter = true, polygot = false}
+  plugins = {
+    lsp_saga = true,
+    treesitter = true,
+    polygot = false,
+    nvim_lsp = true,
+    packer = true,
+    nvim_tree = true
+  }
 })
 
 tokyonight.setup({
@@ -56,11 +63,9 @@ tokyonight.setup({
   hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
   dim_inactive = false, -- dims inactive windows
   lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
-
   --- You can override specific color groups to use other groups or a hex color
   --- function will be called with a ColorScheme table
   on_colors = function(colors) end,
-
   --- You can override specific highlights to use other groups or a hex color
   --- function will be called with a Highlights and ColorScheme table
   on_highlights = function(highlights, colors) end
