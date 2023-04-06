@@ -32,9 +32,9 @@ local on_attach = require("utils.lsp-on-attach")
 mason_lspconfig.setup({
   ensure_installed = {
     "bashls", "clangd", "cssls", "dockerls", "gopls", "graphql", "html",
-    "jsonls", "tsserver", "marksman", "pyright", "rust_analyzer", "sqls",
-    "vuels", "lemminx", "yamlls", "tailwindcss", "svelte", "prismals", "cmake",
-    "dotls", "efm", "astro", "taplo", "terraformls", "tflint", "vimls"
+    "jsonls", "tsserver", "marksman", "pyright", "rust_analyzer", "vuels",
+    "lemminx", "yamlls", "tailwindcss", "svelte", "prismals", "cmake", "dotls",
+    "efm", "astro", "taplo", "terraformls", "tflint", "vimls"
   },
   automatic_installation = true
 })
