@@ -41,6 +41,24 @@ mason_lspconfig.setup({
 
 mason_lspconfig.setup_handlers {
   function(server_name)
+    if server_name == "denols" then
+      lspconfig[server_name].setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc")
+      }
+      return
+    end
+
+    if server_name == "tsserver" then
+      lspconfig[server_name].setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        root_dir = lspconfig.util.root_pattern("package.json")
+      }
+      return
+    end
+
     lspconfig[server_name].setup {
       on_attach = on_attach,
       capabilities = capabilities
