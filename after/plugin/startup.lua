@@ -5,4 +5,4 @@ if not status then
   return
 end
 
-startup.setup({theme = "dashboard"})
+startup.setup({theme = "evil"})
