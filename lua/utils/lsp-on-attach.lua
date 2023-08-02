@@ -1,11 +1,3 @@
-local saga_status, saga = pcall(require, "lspsaga")
-if not saga_status then
-  vim.notify("Couldn't load lspsaga.")
-  return
-end
-
-saga.setup({})
-
 local lsp_format_status, lsp_format = pcall(require, "lsp-format")
 if not lsp_format_status then
   vim.notify("Couldn't load lsp-format")
@@ -13,8 +5,6 @@ if not lsp_format_status then
 end
 
 lsp_format.setup({})
-
-local diagnostic = require("lspsaga.diagnostic")
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -59,13 +49,6 @@ local on_attach = function(client, bufnr)
   -- buf_set_keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>',
                  opts)
-
-  vim.keymap.set("n", "[e", function()
-    diagnostic.goto_prev({severity = vim.diagnostic.severity.ERROR})
-  end, opts)
-  vim.keymap.set("n", "]e", function()
-    diagnostic.goto_next({severity = vim.diagnostic.severity.ERROR})
-  end, opts)
 
   lsp_format.on_attach(client)
 end
