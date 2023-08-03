@@ -34,7 +34,7 @@ mason_lspconfig.setup({
     "bashls", "clangd", "cssls", "dockerls", "gopls", "graphql", "html",
     "jsonls", "tsserver", "marksman", "pyright", "rust_analyzer", "vuels",
     "lemminx", "yamlls", "tailwindcss", "svelte", "prismals", "cmake", "dotls",
-    "efm", "astro", "taplo", "terraformls", "tflint", "vimls"
+    "astro", "taplo", "terraformls", "tflint", "vimls"
   },
   automatic_installation = true
 })
