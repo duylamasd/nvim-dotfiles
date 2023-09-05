@@ -1,10 +1,4 @@
-local lsp_format_status, lsp_format = pcall(require, "lsp-format")
-if not lsp_format_status then
-  vim.notify("Couldn't load lsp-format")
-  return
-end
-
-lsp_format.setup({})
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -50,7 +44,15 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>',
                  opts)
 
-  lsp_format.on_attach(client)
+  -- lsp_format.on_attach(client, bufnr)
+  if client.supports_method("textDocument/formatting") then
+    vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = augroup,
+      buffer = bufnr,
+      callback = function() vim.lsp.buf.format({async = false}) end
+    })
+  end
 end
 
 return on_attach

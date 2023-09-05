@@ -70,8 +70,6 @@ return require("packer").startup(function(use)
 
   use {"folke/tokyonight.nvim"}
 
-  use {"lukas-reineke/lsp-format.nvim"}
-
   use {
     "startup-nvim/startup.nvim",
     requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"}
