@@ -45,7 +45,8 @@ mason_lspconfig.setup_handlers {
       lspconfig[server_name].setup {
         on_attach = on_attach,
         capabilities = capabilities,
-        root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc")
+        root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+        flags = {allow_incremental_sync = true, debounce_text_changes = 500}
       }
       return
     end
@@ -54,14 +55,16 @@ mason_lspconfig.setup_handlers {
       lspconfig[server_name].setup {
         on_attach = on_attach,
         capabilities = capabilities,
-        root_dir = lspconfig.util.root_pattern("package.json")
+        root_dir = lspconfig.util.root_pattern("package.json"),
+        flags = {allow_incremental_sync = true, debounce_text_changes = 500}
       }
       return
     end
 
     lspconfig[server_name].setup {
       on_attach = on_attach,
-      capabilities = capabilities
+      capabilities = capabilities,
+      flags = {allow_incremental_sync = true, debounce_text_changes = 500}
     }
   end
 }
