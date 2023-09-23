@@ -61,6 +61,16 @@ mason_lspconfig.setup_handlers {
       return
     end
 
+    if server_name == "gopls" then
+      lspconfig[server_name].setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+        flags = {allow_incremental_sync = true, debounce_text_changes = 500},
+        settings = {gopls = {usePlaceholders = true}}
+      }
+    end
+
     lspconfig[server_name].setup {
       on_attach = on_attach,
       capabilities = capabilities,
