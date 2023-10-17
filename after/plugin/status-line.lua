@@ -3,13 +3,13 @@ if (not status) then return end
 
 local tabline = require("tabline")
 
-tabline.setup {}
+tabline.setup {enable = false}
 
 lualine.setup {
   options = {
     icons_enabled = true,
     theme = "tokyonight",
-    section_separators = {left = "", right = ""},
+    section_separators = {left = "", right = ""},
     component_separators = {left = "", right = ""},
     disabled_filetypes = {"NvimTree"},
     always_divide_middle = true
