@@ -26,8 +26,6 @@ return require("packer").startup(function(use)
 
   use "onsails/lspkind-nvim"
 
-  use "puremourning/vimspector"
-
   use "editorconfig/editorconfig-vim"
 
   -- Theme
@@ -59,7 +57,7 @@ return require("packer").startup(function(use)
 
   use {
     "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig"
+    "neovim/nvim-lspconfig", "mfussenegger/nvim-dap"
   }
 
   use {"nvim-tree/nvim-web-devicons"}
@@ -73,5 +71,13 @@ return require("packer").startup(function(use)
   use {
     "startup-nvim/startup.nvim",
     requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"}
+  }
+
+  use {"rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}}
+  use {"mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"}}
+  use {
+    "microsoft/vscode-js-debug",
+    opt = true,
+    run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
   }
 end)
