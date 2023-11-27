@@ -40,6 +40,7 @@ M.config = function()
           on_attach = on_attach,
           capabilities = capabilities,
           root_dir = lspconfig.util.root_pattern("package.json"),
+          single_file_support = false,
           flags = {allow_incremental_sync = true, debounce_text_changes = 500}
         }
         return
