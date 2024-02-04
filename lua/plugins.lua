@@ -14,7 +14,7 @@ local undotree = require("core.plugins.undotree")
 local noice = require("core.plugins.noice")
 
 return {
-  {
+  {"LazyVim/LazyVim", opts = {colorscheme = "tokyonight"}}, {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     dependencies = {"nvim-lua/plenary.nvim"},
