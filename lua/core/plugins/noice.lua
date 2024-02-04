@@ -21,4 +21,16 @@ M.config = function()
   })
 end
 
+M.keys = {
+  {
+    "<S-Enter>",
+    function()
+      local noice = require("noice")
+      noice.redirect(vim.fn.getcmdline())
+    end,
+    mode = { "c" },
+    desc = "Redirect Cmdline"
+  }
+}
+
 return M
