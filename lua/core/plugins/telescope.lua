@@ -6,7 +6,10 @@ M.config = function()
 
   telescope.setup {
     defaults = { mappings = { n = { ["q"] = actions.close } } },
-    pickers = { find_files = { theme = "dropdown" } }
+    pickers = { find_files = { theme = "dropdown" } },
+    extensions = {
+      file_browser = { hidden = { file_browser = true, folder_browser = true } }
+    }
   }
 
   telescope.load_extension("file_browser")
