@@ -12,6 +12,7 @@ local lualine = require("core.plugins.lualine")
 local telescope = require("core.plugins.telescope")
 local undotree = require("core.plugins.undotree")
 local noice = require("core.plugins.noice")
+local copilot = require("core.plugins.copilot")
 
 return {
   {"LazyVim/LazyVim", opts = {colorscheme = "tokyonight"}}, {
@@ -79,5 +80,10 @@ return {
       --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify"
     }
+  }, {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    opts = copilot.opts
   }
 }
