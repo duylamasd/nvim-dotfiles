@@ -12,17 +12,27 @@ M.config = function()
     dapui.close()
   end
 
-  dap.listeners.before.event_exited["dapui_config"] =
-      function() dapui.close() end
+  dap.listeners.before.event_exited["dapui_config"] = function()
+    dapui.close()
+  end
 end
 
 M.keys = {
-  {"<leader>du", function() require("dapui").toggle({}) end, desc = "Dap UI"}, {
+  {
+    "<leader>du",
+    function()
+      require("dapui").toggle({})
+    end,
+    desc = "Dap UI",
+  },
+  {
     "<leader>de",
-    function() require("dapui").eval() end,
+    function()
+      require("dapui").eval()
+    end,
     desc = "Eval",
-    mode = {"n", "v"}
-  }
+    mode = { "n", "v" },
+  },
 }
 
 return M

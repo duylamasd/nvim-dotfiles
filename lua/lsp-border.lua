@@ -1,7 +1,12 @@
 local border = {
-  {"╭", "FloatBorder"}, {"─", "FloatBorder"}, {"╮", "FloatBorder"},
-  {"│", "FloatBorder"}, {"╯", "FloatBorder"}, {"─", "FloatBorder"},
-  {"╰", "FloatBorder"}, {"│", "FloatBorder"}
+  { "╭", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╮", "FloatBorder" },
+  { "│", "FloatBorder" },
+  { "╯", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╰", "FloatBorder" },
+  { "│", "FloatBorder" },
 }
 
 local hover_buf = vim.lsp.util.open_floating_preview
