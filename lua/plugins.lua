@@ -14,6 +14,7 @@ local noice = require("core.plugins.noice")
 local copilot = require("core.plugins.copilot")
 local copilot_cmp = require("core.plugins.copilot-cmp")
 local conform = require("core.plugins.conform")
+local linting = require("core.plugins.linting")
 
 return {
   { "LazyVim/LazyVim", opts = { colorscheme = "tokyonight" } },
@@ -119,5 +120,9 @@ return {
     opts = conform.opts,
     keys = conform.keys,
   },
+  {
+    "mfussenegger/nvim-lint",
+    opts = linting.opts,
+    config = linting.config,
+  },
 }
-
