@@ -1,5 +1,3 @@
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -7,7 +5,7 @@ local on_attach = function(client, bufnr)
   vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 
   -- Mappings.
-  local options = {buffer = bufnr}
+  local options = { buffer = bufnr }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   -- buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -30,19 +28,6 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, options)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, options)
   vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, options)
-
-  vim.keymap.set("n", "<space>f",
-                 function() vim.lsp.buf.format({async = true}) end, options)
-
-  -- lsp_format.on_attach(client, bufnr)
-  if client.supports_method("textDocument/formatting") then
-    vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function() vim.lsp.buf.format({async = false}) end
-    })
-  end
 end
 
 return on_attach
