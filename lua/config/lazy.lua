@@ -1,19 +1,29 @@
----@diagnostic disable: duplicate-set-field
-local border = {
-  { "╭", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "╮", "FloatBorder" },
-  { "│", "FloatBorder" },
-  { "╯", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "╰", "FloatBorder" },
-  { "│", "FloatBorder" },
-}
-
-local hover_buf = vim.lsp.util.open_floating_preview
-
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-  opts = opts or {}
-  opts.border = opts.border or border
-  return hover_buf(contents, syntax, opts, ...)
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
+
+require("lazy").setup({
+  spec = {
+    {
+      "LazyVim/LazyVim",
+      opts = { colorscheme = "tokyonight" },
+      defaults = { autocmds = true, options = true, keymaps = true },
+      import = "lazyvim.plugins",
+    },
+    { import = "plugins" },
+  },
+  defaults = {
+    lazy = false,
+    version = false,
+  },
+  checker = { enabled = true },
+})
