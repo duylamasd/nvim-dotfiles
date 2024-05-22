@@ -11,7 +11,6 @@ local M = {
         "golangci-lint",
         "flake8",
         "cpplint",
-        "rustfmt",
         "clang-format",
         "goimports",
         "isort",
