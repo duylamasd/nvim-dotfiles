@@ -107,6 +107,9 @@ local M = {
           end,
           settings = {},
         },
+        clangd = {
+          filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+        },
       },
     },
     setup = {},
