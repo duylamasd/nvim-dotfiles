@@ -10,7 +10,7 @@ local M = {
         timeout_ms = 10000,
         async = false,
         quite = false,
-        lsp_fallback = true,
+        lsp_format = "fallback",
       },
       formatters_by_ft = {
         lua = { "stylua" },
@@ -37,7 +37,7 @@ local M = {
       "<space>f",
       function()
         local conform = require("conform")
-        conform.format({ async = true, lsp_fallback = true })
+        conform.format({ async = true, lsp_format = "fallback" })
       end,
       mode = { "n" },
       desc = "Format buffer",
