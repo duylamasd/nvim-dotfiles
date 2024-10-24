@@ -11,6 +11,7 @@ local M = {
         async = false,
         quite = false,
         lsp_format = "fallback",
+        step_after_first = true,
       },
       formatters_by_ft = {
         lua = { "stylua" },
@@ -39,7 +40,7 @@ local M = {
       "<space>f",
       function()
         local conform = require("conform")
-        conform.format({ async = true, lsp_format = "fallback" })
+        conform.format({ async = true, lsp_format = "fallback", stop_after_first = true })
       end,
       mode = { "n" },
       desc = "Format buffer",
