@@ -26,7 +26,14 @@ local M = {
 
     vim.g.rainbow_delimiters = { highlight = highlight }
 
-    ibl.setup({ scope = { highlight = highlight }, exclude = { filetypes = { "dashboard" } } })
+    ibl.setup({
+      indent = {
+        char = "│",
+        tab_char = "│",
+      },
+      scope = { highlight = highlight },
+      exclude = { filetypes = { "dashboard" } },
+    })
 
     hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
   end,
