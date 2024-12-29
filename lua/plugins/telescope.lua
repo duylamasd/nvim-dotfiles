@@ -16,7 +16,6 @@ local M = {
       },
     })
 
-    telescope.load_extension("file_browser")
     telescope.load_extension("noice")
   end,
   keys = {
@@ -84,7 +83,6 @@ local M = {
       noremap = true,
       silent = true,
     },
-    { "nt", ":Telescope file_browser<CR>", mode = { "n" }, noremap = true },
   },
 }
 
