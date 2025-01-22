@@ -11,7 +11,7 @@ local M = {
         async = false,
         quite = false,
         lsp_format = "fallback",
-        step_after_first = true,
+        stop_after_first = true,
       },
       formatters_by_ft = {
         lua = { "stylua" },
@@ -30,6 +30,10 @@ local M = {
         sh = { "shfmt" },
         cpp = { "clang-format" },
         c = { "clang-format" },
+      },
+      format_on_save = {
+        lsp_format = "fallback",
+        timeout_ms = 500,
       },
     }
 
