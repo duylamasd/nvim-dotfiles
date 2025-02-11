@@ -30,6 +30,7 @@ local M = {
         sh = { "shfmt" },
         cpp = { "clang-format" },
         c = { "clang-format" },
+        proto = { "buf" },
       },
     }
 
