@@ -93,7 +93,7 @@ local M = {
           end,
           settings = {},
         },
-        tsserver = {
+        ts_ls = {
           root_dir = function(...)
             return require("lspconfig").util.root_pattern("package.json")(...)
           end,
