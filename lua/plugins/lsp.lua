@@ -1,9 +1,10 @@
 local M = {
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     cmd = "Mason",
     keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
     build = ":MasonUpdate",
+    version = "^1.0.0",
     opts = {
       ensure_installed = {
         "clangd",
@@ -46,13 +47,14 @@ local M = {
       end
     end,
   },
+  { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
   {
     "neovim/nvim-lspconfig",
     event = "LazyFile",
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
-      "mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
+      "mason-org/mason.nvim",
+      "mason-org/mason-lspconfig.nvim",
     },
     init = function()
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
