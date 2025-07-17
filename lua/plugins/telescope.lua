@@ -8,7 +8,7 @@ local M = {
 
     telescope.setup({
       defaults = { mappings = { n = { ["q"] = actions.close } } },
-      pickers = { find_files = { theme = "dropdown", hidden = true, no_ignore = true } },
+      pickers = { find_files = { theme = "dropdown", hidden = false, no_ignore = false } },
       extensions = {
         file_browser = { hidden = { file_browser = true, folder_browser = true } },
       },
@@ -24,6 +24,26 @@ local M = {
         "ff",
         builtin.find_files,
         desc = "Telescope find files",
+        mode = { "n" },
+        noremap = true,
+        silent = true,
+      },
+      {
+        "ffh",
+        function()
+          builtin.find_files({ hidden = true })
+        end,
+        desc = "Telescope find files (hidden)",
+        mode = { "n" },
+        noremap = true,
+        silent = true,
+      },
+      {
+        "ffi",
+        function()
+          builtin.find_files({ no_ignore = true })
+        end,
+        desc = "Telescope find files (no ignore)",
         mode = { "n" },
         noremap = true,
         silent = true,

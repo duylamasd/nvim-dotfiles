@@ -28,3 +28,5 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts.border = opts.border or border
   return hover_buf(contents, syntax, opts, ...)
 end
+
+vim.g.lazyvim_picker = "telescope"
