@@ -1,5 +1,6 @@
 local M = {
   "nvim-treesitter/nvim-treesitter",
+  tag = "v0.10.0",
   build = ":TSUpdate",
   event = { "VeryLazy" },
   config = function()
