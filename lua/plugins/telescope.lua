@@ -1,6 +1,7 @@
 local M = {
   "nvim-telescope/telescope.nvim",
-  branch = "0.1.x",
+  --branch = "0.1.x",
+  version = false,
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     local telescope = require("telescope")
