@@ -20,7 +20,7 @@ This is a Neovim configuration built on LazyVim with custom plugins and keybindi
 ## Key Configuration Details
 
 **LazyVim Extras enabled:**
-- `ai.copilot` - GitHub Copilot
+- `ai.claudecode` - Claude Code integration
 - `coding.blink` - Blink completion
 - `dap.core` - Debug Adapter Protocol
 - `editor.mini-files` - File browser
@@ -80,5 +80,11 @@ The `lazy-lock.json` tracks exact plugin versions.
 
 ## AI Integration
 
-- codecompanion.nvim (v17.33.0) with MCP hub integration
-- GitHub Copilot via LazyVim extra
+- Claude Code via LazyVim extra (`ai.claudecode`)
+- codecompanion.nvim with MCP hub integration
+
+## Commit Guidelines
+
+- Do not add "Generated with Claude Code" footer
+- Do not add "Co-Authored-By" lines
+- Follow conventional commits: `type(scope): message`

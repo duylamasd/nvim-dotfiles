@@ -19,7 +19,7 @@ require("lazy").setup({
       defaults = { autocmds = true, options = true, keymaps = true },
       import = "lazyvim.plugins",
     },
-    { import = "lazyvim.plugins.extras.ai.copilot" },
+    { import = "lazyvim.plugins.extras.ai.claudecode" },
     { import = "lazyvim.plugins.extras.coding.blink" },
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.editor.mini-files" },
